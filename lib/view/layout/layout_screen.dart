@@ -1,6 +1,6 @@
 import 'package:salla/model/home/home_repo/repo.dart';
 import 'package:salla/shared/services/service_locator.dart';
-import 'package:salla/shared/utils/constants.dart';
+import 'package:salla/shared/services/private/constants.dart';
 import 'package:salla/view_model/home_cubit/Shop_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,9 +12,9 @@ class LayoutView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
 
-      create: (BuildContext context) => ShopCubit(getIt.get<HomeRepository>())..getHomeData(token: token)..
-      getCategoriesData(token: token)..getFavoritesData(token: token)..
-      getUserData(token: token),
+      create: (BuildContext context) => ShopCubit(getIt.get<HomeRepository>())..getHomeData(token: AppConstants.kToken)..
+      getCategoriesData(token: AppConstants.kToken)..getFavoritesData(token: AppConstants.kToken)..
+      getUserData(token: AppConstants.kToken),
       child: BlocConsumer<ShopCubit, ShopState>(
           listener: (context, state) {
           },

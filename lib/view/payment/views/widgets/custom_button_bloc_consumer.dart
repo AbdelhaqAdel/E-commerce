@@ -1,6 +1,6 @@
 
 import 'package:salla/model/payment/data/payment_intent_input_model.dart';
-import 'package:salla/shared/services/api_keys.dart';
+import 'package:salla/shared/services/private/api_keys.dart';
 import 'package:salla/shared/utils/widgets/stripe_custom_button.dart';
 import 'package:salla/view/payment/views/thank_you_screen.dart';
 import 'package:salla/view_model/payment/cubit/payment_cubit.dart';

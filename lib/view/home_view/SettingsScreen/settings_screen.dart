@@ -1,6 +1,7 @@
-import 'package:salla/shared/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:salla/shared/services/private/constants.dart';
+import 'package:salla/shared/utils/functions/log_out.dart';
 import '../../../view_model/home_cubit/Shop_cubit.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -98,7 +99,7 @@ class SettingsScreen extends StatelessWidget {
                         name: nameController.text,
                         email: emailController.text,
                         phone: phoneController.text,
-                        token: token,
+                        token: AppConstants.kToken,
                       );
             
                     },

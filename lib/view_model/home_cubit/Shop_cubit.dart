@@ -3,14 +3,14 @@ import 'package:salla/model/home/data/favorites_model.dart';
 import 'package:salla/model/auth/auth_data/login_model.dart';
 import 'package:salla/model/home/home_repo/repo.dart';
 import 'package:salla/model/home/data/home_model.dart';
-import 'package:salla/shared/utils/constants.dart';
+import 'package:salla/shared/services/private/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../model/auth/auth_data/update_user_model.dart';
 import '../../view/home_view/CategoriesScreen/CategoriesScreen.dart';
 import '../../view/home_view/FavoritesScreen/FavoritesScreen.dart';
-import '../../view/home_view/SettingsScreen/SettingsScreen.dart';
+import '../../view/home_view/SettingsScreen/settings_screen.dart';
 import '../../view/home_view/ShopHomeScreen.dart';
 part 'shop_state.dart';
 
@@ -83,11 +83,11 @@ void getUserData({required String? token}) async {
     emit(UserFavSuccessState());
 
     try {
-      final favModel = await _userRepository.changeFavorite(token: token, productId: productId);
+      final favModel = await _userRepository.changeFavorite(token: AppConstants.kToken, productId: productId);
       if (!favModel!.status!) {
         favorites[productId] = !favorites[productId]!;  // Revert if there's an error
       } else {
-        getFavoritesData(token: token);  // Refresh favorites if successful
+        getFavoritesData(token: AppConstants.kToken);  // Refresh favorites if successful
       }
       emit(UserFavSuccessState());
     } catch (error) {

@@ -1,7 +1,7 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:salla/model/auth/auth_repo.dart';
 import 'package:salla/shared/services/service_locator.dart';
-import 'package:salla/shared/utils/constants.dart';
+import 'package:salla/shared/services/private/constants.dart';
 import 'package:salla/shared/utils/widgets/navigation.dart';
 import 'package:salla/view/layout/layout_screen.dart';
 import 'package:salla/view_model/auth/manager/login_cubit.dart';
@@ -27,8 +27,8 @@ class RegisterScreen extends StatelessWidget {
         listener: (context, state) {
           if(state is RegisterSuccessState){
           if (state.registerModel!.status!) {
-            token = state.registerModel!.data!.token!;
-            NavigationAndFinish(context, LayoutView());
+            AppConstants.kToken = state.registerModel!.data!.token!;
+            NavigationAndFinish(context, const LayoutView());
           }  else{
             print(state.registerModel!.message);
           }

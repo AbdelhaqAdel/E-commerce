@@ -1,8 +1,8 @@
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:salla/shared/services/api_keys.dart';
+import 'package:salla/shared/services/private/api_keys.dart';
 import 'package:salla/shared/services/cache_services.dart';
 import 'package:salla/shared/services/service_locator.dart';
-import 'package:salla/shared/utils/constants.dart';
+import 'package:salla/shared/services/private/constants.dart';
 import 'package:salla/view/On_boarding/onBoardingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:salla/view/layout/layout_screen.dart';
@@ -14,12 +14,12 @@ void main() async{
     ApiService.init();
     setupServiceLocator(); 
     await CacheHelper.init();
-    token = CacheHelper.getData(key: 'token');
-      if (token == null) {
-       startWidget=OnBoarding();
+    AppConstants.kToken = CacheHelper.getData(key: 'token');
+      if (AppConstants.kToken == null) {
+       AppConstants.kStartWidget=OnBoarding();
     }
   else{
-    startWidget=const LayoutView();
+    AppConstants.kStartWidget=const LayoutView();
   }
     runApp(const MyApp());
 }
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) { 
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: startWidget,
+      home: AppConstants.kStartWidget,
     );
   }
 }

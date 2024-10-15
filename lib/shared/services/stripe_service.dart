@@ -5,7 +5,7 @@ import 'package:salla/model/payment/data/ephemeral_key_model/ephemeral_key_model
 import 'package:salla/model/payment/data/init_payment_sheet_input_model.dart';
 import 'package:salla/model/payment/data/payment_intent_input_model.dart';
 import 'package:salla/model/payment/data/payment_intent_model/payment_intent_model.dart';
-import 'package:salla/shared/services/api_keys.dart';
+import 'package:salla/shared/services/private/api_keys.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 
 class StripeService {

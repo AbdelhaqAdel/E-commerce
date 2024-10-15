@@ -2,7 +2,7 @@ import 'package:conditional_builder_null_safety/conditional_builder_null_safety.
 import 'package:salla/model/auth/auth_repo.dart';
 import 'package:salla/shared/services/cache_services.dart';
 import 'package:salla/shared/services/service_locator.dart';
-import 'package:salla/shared/utils/constants.dart';
+import 'package:salla/shared/services/private/constants.dart';
 import 'package:salla/shared/utils/widgets/custom_button.dart';
 import 'package:salla/shared/utils/widgets/navigation.dart';
 import 'package:salla/view/layout/layout_screen.dart';
@@ -27,8 +27,8 @@ class ShopLogin extends StatelessWidget {
           listener: (context, state) {
             if(state is LoginSuccessState){
               if(state.loginModel.status!){
-                  token = state.loginModel.data!.token!;
-                  CacheHelper.saveData(key:'token', value:token);
+                  AppConstants.kToken = state.loginModel.data!.token!;
+                  CacheHelper.saveData(key:'token', value:AppConstants.kToken);
                   NavigationAndFinish(context, LayoutView());
               }
               else{
