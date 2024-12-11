@@ -7,7 +7,7 @@ import 'package:salla/view/On_boarding/onBoardingScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:salla/view/layout/layout_screen.dart';
 import 'shared/services/api_services.dart';
-
+/***************************** */
 void main() async{
     WidgetsFlutterBinding.ensureInitialized();
     Stripe.publishableKey = ApiKeys.publishableKey;
